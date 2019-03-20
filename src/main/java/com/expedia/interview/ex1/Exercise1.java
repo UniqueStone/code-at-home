@@ -28,6 +28,7 @@ public class Exercise1 {
         } else if (1 <= m && m <= 30) { // 1 <= minutes <= 30
             connStr = " past ";
             hour = transferTheNum(h);
+
             // Judge minute
             if (m == 15) {
                 minute = "quarter";
@@ -51,8 +52,9 @@ public class Exercise1 {
             if (m == 45) {
                 minute = "quarter";
             }else {
+                m = 60 - m;
                 minuteUnit = getMinuteUnit(m);
-                minute = transferTheNum(60 - m) + minuteUnit;
+                minute = transferTheNum(m) + minuteUnit;
             }
 
             result = minute + connStr + hour;
@@ -124,15 +126,7 @@ public class Exercise1 {
 
     @Test
     public void test() {
-        String time = "12:37";
-
-        boolean result = judgeTime(time);
-
-        System.out.println(result);
-
-        int num = 59;
-        String numResult = transferTheNum(60 - num);
-        System.out.println(numResult);
+        String time = "12:59";
 
         String [] times = time.split(":");
         String words = timeInWords(Integer.parseInt(times[0]), Integer.parseInt(times[1]));
