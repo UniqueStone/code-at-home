@@ -126,10 +126,14 @@ public class Exercise1 {
 
     @Test
     public void test() {
-        String time = "12:59";
+        String time = "22:59";
 
-        String [] times = time.split(":");
-        String words = timeInWords(Integer.parseInt(times[0]), Integer.parseInt(times[1]));
-        System.out.println(words);
+        if (judgeTime(time)) {
+            String [] times = time.split(":");
+            String words = timeInWords(Integer.parseInt(times[0]), Integer.parseInt(times[1]));
+            System.out.println(words);
+        } else {
+            System.out.println("It's not a valid time");
+        }
     }
 }
