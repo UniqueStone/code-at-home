@@ -29,7 +29,6 @@ public class Exercise1 {
             connStr = " past ";
             hour = transferTheNum(h);
 
-            // Judge minute
             if (m == 15) {
                 minute = "quarter";
             } else if (m == 30) {
@@ -43,11 +42,7 @@ public class Exercise1 {
         } else {    // minutes > 30
             connStr = " to ";
             // Judge h, if h == 2, the value of hour should be 1
-            if (h == 12) {
-                hour = transferTheNum(1);
-            }else {
-                hour = transferTheNum(h);
-            }
+            hour = (h == 12) ? transferTheNum(1) : transferTheNum(h);
 
             if (m == 45) {
                 minute = "quarter";
@@ -69,14 +64,7 @@ public class Exercise1 {
      * @return
      */
     String getMinuteUnit(int m) {
-       String minuteUnit;
-        if (m != 1) {
-            minuteUnit = " minutes";
-        } else {
-            minuteUnit = " minute";
-        }
-
-        return minuteUnit;
+        return (m != 1) ? " minutes" : " minute";
     }
 
     String digits[] = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
